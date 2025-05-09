@@ -1,5 +1,5 @@
 <?php
-include('../modal/connect.php');
+include("../modal/connect.php");
 
 class data_contact
 {
@@ -31,7 +31,7 @@ class data_contact
     function select_contact_id($id)
         {
           global $conn;
-          $sql="select * from table where ID_contact='$id'";
+          $sql="select * from contact where ID_Contact='$id'";
           $run=mysqli_query($conn, $sql);
           return $run;
         }

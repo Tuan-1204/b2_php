@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buoi 2</title>
+    <title>Đăng kí thông tin</title>
     <!-- link bootstrap -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- link css -->
@@ -36,7 +36,7 @@
     <div class="container">
         
 <?php
-            include ("../modal/modal.php");//Gọi trang Control
+            include("../modal/modal.php");//Gọi trang Control
             $getdata=new data_contact();//Gọi lớp data
             $select=$getdata->select_all();//Gọi function select trong trang control
    ?>
@@ -62,17 +62,22 @@
                    <td><?php echo $se_pro['Email']?></td>
                    <td><?php echo $se_pro['Phone']?></td>
                    <td><?php echo $se_pro['Mess']?></td>
-                   <td><button>edit</button> <button>delete</button></td>
+                   <td>
+                   <a href="update.php?up=<?php echo $se_pro['ID_Contact']?>">Update</a>  
+                   <a href="delete.php?del=<?php echo $se_pro['ID_Contact']?>" onClick=     
+       "if(confirm('Bạn có chắc chắn muốn xoa')) return true; else return false"
+    >Delete</a>
+</td>
        </tr>
             <?php } ?>
        </tbody>
        </table>
 
        <?php
-include('../modal/modal.php');
+include("../modal/modal.php");
 $get_data=new data_contact();
 $delete=$get_data->delete_contact($_GET['del']); //Gọi function tương ứng với tham số là giá trị truyền trang
-if($delete) header('location:admin_contact.php');// nếu xóa thành công thì chuyển trang
+if($delete) header('location:index.php');// nếu xóa thành công thì chuyển trang
 else echo "not delete";
 ?>
 
