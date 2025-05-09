@@ -32,7 +32,7 @@ foreach($select_contact as $se_con)
                                        $_POST['txtphone'],
                                        $_POST['txtmess'],
                                        $_GET['up']);
-      if($update) header('location:contact.php');
+      if($update) header('location:connect.php');
       else echo "Không cập nhật được";
                               }
   ?>
